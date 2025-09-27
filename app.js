@@ -66,9 +66,14 @@ const sessionOptions={
     },
 };
 
-// app.get("/",(req,res)=>{
-//     res.send("Hi, I am root");
-// });
+app.get("/",(req,res)=>{
+    res.send("Hi, I am root");
+});
+
+app.use((req, res, next) => {
+  res.locals.currUser = req.user; // Passport will set req.user when logged in
+  next();
+});
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -109,6 +114,9 @@ app.use((err,req,res,next)=>{
     let {statusCode=500, message="something went wrong"}=err;
     res.status(statusCode).render("error.ejs",{message});
     // res.status(statusCode).send(message);
+});
+app.get("/", (req, res) => {
+  res.redirect("/listings"); // or render homepage
 });
 
 app.listen(8080, ()=>{
