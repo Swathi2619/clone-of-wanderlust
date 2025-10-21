@@ -1,6 +1,6 @@
 # Wanderlust Clone
 
-A web-based travel application built using **React** (and other tech you used, e.g., Node.js, MongoDB).  
+A web-based travel application built using **React** (and other tech, e.g., Node.js, MongoDB).  
 This is a clone of the Wanderlust app, allowing users to explore travel destinations and listings.
 
 ## Features
